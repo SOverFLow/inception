@@ -1,1 +1,44 @@
-test
+version: '3'
+services:
+  nginx:
+    image: data/nginx:1.3
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
+    networks:
+      - inception
+  wordpress:
+    image: data/wordpress:1.3
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:var/www/html
+    networks:
+      - inception
+
+  mariadb:
+    image: data/mariadb:1.3
+    ports:
+      - "6000:6000"
+    volumes:
+      - ./app:var/www/html
+    networks:
+      - inception
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: selhanda
+      MYSQL_PASSWORD: selhanda
+    volumes:
+      - ./app:var/www/html
+    networks:
+      - inception
+networks:
+  inception:
+    driver: "bridge"
+volumes:
+  data:
+    driver: "local"
