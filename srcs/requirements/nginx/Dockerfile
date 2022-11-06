@@ -10,5 +10,5 @@ RUN apt-get update \
 
 ADD default /etc/nginx/sites/default
 
-EXPOSE 80
+EXPOSE 443
 CMD ["nginx"]
