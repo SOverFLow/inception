@@ -1,9 +1,9 @@
 version: '3'
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:1.0
     ports:
-      - "80:80"
+      - "443:443"
     volumes:
       - ./app:/var/www/html
     networks:
@@ -18,9 +18,9 @@ services:
       - inception
 
   mariadb:
-    image: data/mariadb:1.3
+    image: mariadb:1.0
     ports:
-      - "6000:6000"
+      - "3306:3306"
     volumes:
       - ./app:var/www/html
     networks:
