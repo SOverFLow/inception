@@ -41,17 +41,6 @@ services:
     restart: always
     networks:
       - inception
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: selhanda
-      MYSQL_PASSWORD: selhanda
-    volumes:
-      - ./app:var/www/html
-    networks:
-      - inception
 networks:
   inception:
     driver: "bridge"
