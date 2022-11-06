@@ -22,7 +22,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - data/mariadb
+      - mariadb
     networks:
       - inception
   db:
