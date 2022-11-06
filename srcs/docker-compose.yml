@@ -16,7 +16,7 @@ services:
   wordpress:
     image: wordpress:4.7.1-php7.0-fpm
     ports:
-        - '9000:9000'
+        - "9000:9000"
     volumes:
         - ./wordpress:/var/www/html
     environment:
