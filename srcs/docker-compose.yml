@@ -5,15 +5,28 @@ services:
     ports:
       - "443:443"
     volumes:
-      - ./app:/var/www/html
+        - ./nginx:/etc/nginx/default
+        - ./logs/nginx:/var/log/nginx
+        - ./wordpress:/var/www/html
+    links:
+        - wordpress
+    restart: always
     networks:
       - inception
   wordpress:
-    image: data/wordpress:1.3
+    image: wordpress:4.7.1-php7.0-fpm
     ports:
-      - "3000:3000"
+        - '9000:9000'
     volumes:
-      - ./app:var/www/html
+        - ./wordpress:/var/www/html
+    environment:
+        - WORDPRESS_DB_NAME=wpdb
+        - WORDPRESS_TABLE_PREFIX=wp_
+        - WORDPRESS_DB_HOST=mysql
+        - WORDPRESS_DB_PASSWORD=selhanda
+    links:
+        - mysql
+    restart: always
     networks:
       - inception
 
@@ -21,6 +34,11 @@ services:
     image: mariadb:1.0
     ports:
       - "3306:3306"
+    volumes:
+        - ./db-data:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=selhanda
+    restart: always
     networks:
       - inception
   db:
