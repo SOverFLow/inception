@@ -21,8 +21,6 @@ services:
     image: mariadb:1.0
     ports:
       - "3306:3306"
-    volumes:
-      - mariadb
     networks:
       - inception
   db:
