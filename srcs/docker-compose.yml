@@ -5,9 +5,9 @@ services:
     ports:
       - "443:443"
     volumes:
-        - ./nginx:/etc/nginx/default
+        - ./requirements/nginx:/etc/nginx/default
         - ./logs/nginx:/var/log/nginx
-        - ./wordpress:/var/www/html
+        - ./requirements/wordpress:/var/www/html
     links:
         - wordpress
     restart: always
@@ -18,7 +18,7 @@ services:
     ports:
         - "9000:9000"
     volumes:
-        - ./wordpress:/var/www/html
+        - ./requirements/wordpress:/var/www/html
     environment:
         - WORDPRESS_DB_NAME=wpdb
         - WORDPRESS_TABLE_PREFIX=wp_
@@ -35,7 +35,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-        - ./db-data:/var/lib/mysql
+        - ./requirements/mariadb:/var/lib/mysql
     environment:
         - MYSQL_ROOT_PASSWORD=selhanda
     restart: always
