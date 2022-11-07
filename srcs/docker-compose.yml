@@ -3,9 +3,9 @@ services:
   nginx:
     image: nginx:1.0
     ports:
-      - "443:443"
+      - "80:80"
     volumes:
-        - ./requirements/nginx/default.conf:/etc/nginx/default.conf
+        - ./requirements/nginx:/etc/nginx/conf.d
         - ./logs/nginx:/var/log/nginx
         - ./requirements/wordpress:/var/www/html
     links:
