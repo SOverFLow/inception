@@ -6,4 +6,4 @@ down:
 
 clean: down
 	@echo "💥 Removing related folders/files..."
-	@rm -rf  srcs/requirements/mariadb/* srcs/requirements/wordpress/*
+	@sudo rm -rf  srcs/logs srcs/requirements/mariadb/* srcs/requirements/wordpress/*

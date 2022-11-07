@@ -8,7 +8,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && echo "daemon off;" >> /etc/nginx/nginx.conf
 
-ADD default /etc/nginx/sites/default
+ADD default.conf  /etc/nginx/sites-available/default.conf
 
 EXPOSE 443
 CMD ["nginx"]
