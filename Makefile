@@ -1,7 +1,5 @@
 up:
-	cd srcs;
-		sudo docker compose up -d
+	@cd srcs && sudo docker compose up -d
 
 down:
-	cd srcs;
-		sudo docker compose down
+	@cd srcs && sudo docker compose down
