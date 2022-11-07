@@ -5,5 +5,5 @@ down:
 	@cd srcs && sudo docker compose down
 
 clean: down
-    @echo "💥 Removing related folders/files..."
-    @rm -rf  srcs/requirements/mariadb/* srcs/requirements/wordpress/*
+	@echo "💥 Removing related folders/files..."
+	@rm -rf  srcs/requirements/mariadb/* srcs/requirements/wordpress/*
