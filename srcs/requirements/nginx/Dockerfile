@@ -11,4 +11,4 @@ RUN apt-get update \
 ADD default.conf  /etc/nginx/sites-available/default.conf
 
 EXPOSE 443
-CMD ["nginx"]
+CMD ["nginx","-g","daemon off"]
