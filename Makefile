@@ -6,4 +6,4 @@ down:
 
 clean: down
 	@echo "💥 Removing related folders/files..."
-	@sudo rm -rf srcs/logs srcs/requirements/wordpress/*
+	@sudo rm -rf srcs/logs
