@@ -3,6 +3,7 @@ services:
   nginx:
     image: nginx:1.3
     user: root
+    container_name: nginx
     ports:
       - "443:443"
     volumes:
@@ -16,6 +17,7 @@ services:
       - inception
   wordpress:
     image: wordpress:4.7.1-php7.0-fpm
+    container_name: wordpress
     ports:
         - "9000:9000"
     volumes:
@@ -33,6 +35,7 @@ services:
 
   mariadb:
     image: mariadb:1.0
+    container_name: mariadb
     user: root
     ports:
       - "3306:3306"
