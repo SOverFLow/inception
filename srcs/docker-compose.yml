@@ -2,6 +2,7 @@ version: '3.9'
 services:
   nginx:
     image: nginx:1.3
+    user: root
     ports:
       - "443:443"
     volumes:
@@ -32,6 +33,7 @@ services:
 
   mariadb:
     image: mariadb:1.0
+    user: root
     ports:
       - "3306:3306"
     volumes:
