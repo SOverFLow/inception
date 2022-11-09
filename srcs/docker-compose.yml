@@ -29,7 +29,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-        - ./requirements/mariadb/wp-data:/var/lib/mysql
+        - wp-data:/var/lib/mysql
     environment:
         MYSQL_ROOT_PASSWORD: selhanda
         MYSQL_DATABASE: wordpress

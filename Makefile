@@ -14,4 +14,4 @@ reset: down
 
 clean: down
 	@echo "💥 Removing related folders/files..."
-	@sudo rm -rf srcs/logs srcs/requirements/wordpress/* srcs/requirements/mariadb/wp-data/*
+	@sudo rm -rf srcs/logs srcs/requirements/wordpress/*
