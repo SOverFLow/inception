@@ -54,3 +54,14 @@ services:
     restart: always
     networks:
       - inception
+  redis:
+    depends_on:
+      - wordpress
+    image: selhanda/redis:latest
+    user: root
+    container_name: redis
+    ports:
+        - "6379:6379"
+    restart: always
+    networks:
+      - inception
