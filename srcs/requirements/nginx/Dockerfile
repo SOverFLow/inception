@@ -12,7 +12,7 @@ RUN apt update && apt install openssl \
     -keyout /etc/ssl/private/nginx-selfsigned.key \
     -out /etc/ssl/certs/nginx-selfsigned.crt;
 
-COPY default.conf /etc/nginx/sites-available/default.conf
+COPY conf/default /etc/nginx/sites-enabled/
 
-EXPOSE 443
+EXPOSE 80
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

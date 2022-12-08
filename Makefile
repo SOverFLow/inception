@@ -14,5 +14,5 @@ reset: down
 
 clean: down
 	@echo "💥 Removing related folders/files and clean database..."
-	@sudo rm -rf srcs/logs srcs/requirements/wordpress/*
+	@sudo rm -rf srcs/logs
 	@sudo docker volume rm srcs_wp-data
