@@ -1,9 +1,7 @@
 FROM debian:buster
 
 RUN apt-get -y update \
-    && apt-get -y install nginx \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && apt-get -y install nginx
 
 RUN apt update && apt install openssl \
     && openssl req -x509 -nodes \

@@ -7,13 +7,8 @@ networks:
 
 services:
   nginx:
-    depends_on:
-      - wordpress
     image: nginx:1.3
-    user: root
     container_name: nginx
-    ports:
-      - "443:443"
     volumes:
         - ./requirements/nginx/default.conf:/etc/nginx/conf.d/default.conf
         - ./logs/nginx:/var/log/nginx
@@ -25,9 +20,6 @@ services:
   mysql:
     image: mariadb
     container_name: mariadb
-    user: root
-    ports:
-      - "3306:3306"
     volumes:
         - wp-data:/var/lib/mysql
     environment:
@@ -43,25 +35,12 @@ services:
       - mysql
     image: wordpress:6.1.0-php7.4-fpm
     container_name: wordpress
-    ports:
-        - "9000:9000"
     volumes:
         - ./requirements/wordpress:/var/www/html
     environment:
         WORDPRESS_DB_HOST: mysql
         WORDPRESS_DB_USER: wp-user
         WORDPRESS_DB_PASSWORD: wp-pass
-    restart: always
-    networks:
-      - inception
-  redis:
-    depends_on:
-      - wordpress
-    image: selhanda/redis:latest
-    user: root
-    container_name: redis
-    ports:
-        - "6379:6379"
     restart: always
     networks:
       - inception
