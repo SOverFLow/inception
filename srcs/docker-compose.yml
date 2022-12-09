@@ -13,7 +13,6 @@ services:
     build: requirements/mariadb
     volumes:
         - wp-data:/var/lib/mysql
-    restart: always
     networks:
       - inception
   wordpress:
@@ -27,6 +26,8 @@ services:
 
 volumes:
   wordpress:
+    driver : local
+  wp-data:
     driver : local
 networks:
   inception:
