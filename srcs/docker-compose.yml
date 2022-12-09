@@ -9,28 +9,19 @@ services:
     networks:
       - inception
 
-  # mysql:
-  #   build: requirements/mariadb
-  #   volumes:
-  #       - wp-data:/var/lib/mysql
-  #   environment:
-  #       MYSQL_ROOT_PASSWORD: selhanda
-  #       MYSQL_DATABASE: wordpress
-  #       MYSQL_USER: wp-user
-  #       MYSQL_PASSWORD: wp-pass
-  #   restart: always
-  #   networks:
-  #     - inception
+  mysql:
+    build: requirements/mariadb
+    volumes:
+        - wp-data:/var/lib/mysql
+    restart: always
+    networks:
+      - inception
   wordpress:
-    # depends_on:
-    #   - mysql
+    depends_on:
+      - mysql
     build: requirements/wordpress
     volumes:
         - wordpress:/var/www/html
-    environment:
-        WORDPRESS_DB_HOST: mysql
-        WORDPRESS_DB_USER: wp-user
-        WORDPRESS_DB_PASSWORD: wp-pass
     networks:
       - inception
 
