@@ -1,11 +1,11 @@
 FROM debian:buster
 
 RUN apt update \
-    && apt install -y mariadb-server mariadb-client
+    && apt install mariadb-server -y
 
-COPY 50-server.cnf /etc/mysql/mariadb.conf.d/
+COPY tools/ tools/
 
-COPY mariadb.sql tools/
+COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
 RUN service mysql start && mariadb < tools/mariadb.sql
 
