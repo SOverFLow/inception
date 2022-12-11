@@ -1,6 +1,8 @@
 version: '3.9'
 services:
   nginx:
+    depends_on:
+      - wordpress
     build: requirements/nginx
     volumes:
         - wordpress:/var/www/html
@@ -9,7 +11,7 @@ services:
     networks:
       - inception
 
-  mysql:
+  mariadb:
     build: requirements/mariadb
     volumes:
         - wp-data:/var/lib/mysql
@@ -17,7 +19,7 @@ services:
       - inception
   wordpress:
     depends_on:
-      - mysql
+      - mariadb
     build: requirements/wordpress
     volumes:
         - wordpress:/var/www/html
