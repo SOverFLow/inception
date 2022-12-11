@@ -7,10 +7,9 @@ services:
     volumes:
         - wordpress:/var/www/html
     ports:
-      - 1337:80
+      - 80:80
     networks:
       - inception
-
   mariadb:
     build: requirements/mariadb
     volumes:
