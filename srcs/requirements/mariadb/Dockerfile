@@ -1,7 +1,7 @@
 FROM debian:buster
 
-RUN apt update \
-    && apt install mariadb-server -y
+RUN apt update -y \
+&& apt install mariadb-server -y
 
 COPY tools/ tools/
 

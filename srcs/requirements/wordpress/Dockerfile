@@ -2,7 +2,7 @@ FROM debian:buster
 
 WORKDIR /var/www/html
 
-RUN apt -y update \
+RUN apt update -y \
     && apt install curl php php-mysql php-fpm mariadb-client -y \
     && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 

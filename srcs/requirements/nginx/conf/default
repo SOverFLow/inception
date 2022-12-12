@@ -38,6 +38,12 @@ server {
         #
         # include snippets/snakeoil.conf;
 
+        ssl                     on;
+        ssl_certificate        /etc/ssl/certs/nginx-selfsigned.crt;
+        ssl_certificate_key    /etc/ssl/private/nginx-selfsigned.key;
+
+        server_name mydomain.com;
+
         root /var/www/html;
 
         # Add index.php to the list if you are using PHP

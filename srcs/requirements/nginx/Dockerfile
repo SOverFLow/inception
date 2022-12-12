@@ -1,7 +1,7 @@
 FROM debian:buster
 
-RUN apt-get -y update \
-    && apt-get -y install nginx
+RUN apt -y update \
+    && apt -y install nginx
 
 RUN apt update && apt install openssl \
     && openssl req -x509 -nodes \
