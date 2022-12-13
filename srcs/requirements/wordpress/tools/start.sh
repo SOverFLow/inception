@@ -6,7 +6,7 @@ wp config create --dbname=wordpresss \
 
 
 wp core install --url="selhanda.42.fr" \
- --title="WordPress" \
+ --title="inception" \
  --admin_user="root" \
  --admin_password="Selhanda@123" \
  --admin_email="admin@email.com" \
