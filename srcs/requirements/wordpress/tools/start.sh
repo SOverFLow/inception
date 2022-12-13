@@ -5,7 +5,7 @@ wp config create --dbname=wordpresss \
     --dbhost=mariadb --allow-root
 
 
-wp core install --url="selhanda.com" \
+wp core install --url="selhanda.42.fr" \
  --title="WordPress" \
  --admin_user="root" \
  --admin_password="Selhanda@123" \

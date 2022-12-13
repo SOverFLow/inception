@@ -19,13 +19,13 @@
 # Default server configuration
 #
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
+        # listen 80 default_server;
+        # listen [::]:80 default_server;
 
         # SSL configuration
         #
-        # listen 443 ssl default_server;
-        # listen [::]:443 ssl default_server;
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
         #
         # Note: You should disable gzip for SSL traffic.
         # See: https://bugs.debian.org/773332
@@ -42,21 +42,19 @@ server {
         ssl_certificate        /etc/ssl/certs/nginx-selfsigned.crt;
         ssl_certificate_key    /etc/ssl/private/nginx-selfsigned.key;
 
-        server_name mydomain.com;
+        server_name selhanda.42.fr;
 
         root /var/www/html;
 
         # Add index.php to the list if you are using PHP
         index index.php index.html index.htm index.nginx-debian.html;
 
-        server_name _;
-
         location / {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
                 try_files $uri $uri/ =404;
         }
-
+        
         # pass PHP scripts to FastCGI server
         #
         location ~ \.php$ {

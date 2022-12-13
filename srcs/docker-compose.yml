@@ -6,14 +6,16 @@ services:
     build: requirements/nginx
     volumes:
         - wordpress:/var/www/html
+    restart: always
     ports:
-      - 80:80
+      - 443:443
     networks:
       - inception
   mariadb:
     build: requirements/mariadb
     volumes:
         - wp-data:/var/lib/mysql
+    restart: always
     networks:
       - inception
   wordpress:
@@ -22,6 +24,7 @@ services:
     build: requirements/wordpress
     volumes:
         - wordpress:/var/www/html
+    restart: always
     networks:
       - inception
 
