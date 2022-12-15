@@ -12,4 +12,9 @@ wp core install --url="selhanda.42.fr" \
  --admin_email="admin@email.com" \
  --allow-root
 
+wp plugin install redis-cache --activate --allow-root
+wp config set WP_REDIS_PORT "6379" --allow-root
+wp config set WP_REDIS_HOST "redis" --allow-root
+wp redis enable --allow-root
+
 php-fpm7.3 -R -F

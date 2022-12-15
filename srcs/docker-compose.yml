@@ -27,6 +27,11 @@ services:
     restart: always
     networks:
       - inception
+  redis:
+    build: requirements/bonus/redis
+    restart: always
+    networks:
+      - inception
 
 volumes:
   wordpress:
