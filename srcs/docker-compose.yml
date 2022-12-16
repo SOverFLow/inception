@@ -32,6 +32,11 @@ services:
     restart: always
     networks:
       - inception
+  vsftpd:
+    build: requirements/bonus/ftp
+    restart: always
+    networks:
+      - inception
 
 volumes:
   wordpress:
