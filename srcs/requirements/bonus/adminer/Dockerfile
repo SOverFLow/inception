@@ -2,14 +2,19 @@ FROM debian:buster
 
 WORKDIR /var/www/html
 
-RUN apt -y update \
-    && apt -y install wget \
-    && wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer.php
+RUN apt-get update \
+    && apt-get install -y\
+    wget \
+    apache2 \
+    libapache2-mod-php7.4 \
+    php7.4-cli \
+    php7.4-common \
+    php7.4-mysql 
 
-RUN chown -R www-data:www-data /var/www/html/adminer.php
+RUN wget https://www.adminer.org/latest.php -O /var/www/html/index.php
 
-RUN chmod 755 /var/www/html/adminer.php
+RUN chown -R www-data:www-data /var/www/html
 
-EXPOSE 3000
+EXPOSE 80
 
-CMD ["/usr/sbin/adminer"]
+CMD ["apachectl", "-D", "FOREGROUND"]

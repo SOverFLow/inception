@@ -44,11 +44,11 @@ services:
   #   restart: always
   #   networks:
   #     - inception
-  # adminer:
-  #   build: requirements/bonus/adminer
-  #   restart: always
-  #   networks:
-  #     - inception
+  adminer:
+    build: requirements/bonus/adminer
+    restart: always
+    networks:
+      - inception
 
 volumes:
   wordpress:
