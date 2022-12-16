@@ -35,10 +35,17 @@ services:
   vsftpd:
     build: requirements/bonus/ftp
     restart: always
+    volumes:
+        - wordpress:/var/www/html
     networks:
       - inception
   # portfolio:
   #   build: requirements/bonus/portfolio
+  #   restart: always
+  #   networks:
+  #     - inception
+  # adminer:
+  #   build: requirements/bonus/adminer
   #   restart: always
   #   networks:
   #     - inception
