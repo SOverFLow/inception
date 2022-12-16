@@ -37,6 +37,11 @@ services:
     restart: always
     networks:
       - inception
+  # portfolio:
+  #   build: requirements/bonus/portfolio
+  #   restart: always
+  #   networks:
+  #     - inception
 
 volumes:
   wordpress:
