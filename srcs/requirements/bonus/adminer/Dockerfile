@@ -3,13 +3,13 @@ FROM debian:buster
 WORKDIR /var/www/html
 
 RUN apt-get update \
-    && apt-get install -y\
-    wget \
-    apache2 \
-    libapache2-mod-php7.4 \
-    php7.4-cli \
-    php7.4-common \
-    php7.4-mysql 
+    && apt-get install -y \
+    # apache2 \
+    # libapache2-mod-php7.4 \
+    # php7.4-cli \
+    # php7.4-common \
+    # php7.4-mysql \
+    wget 
 
 RUN wget https://www.adminer.org/latest.php -O /var/www/html/index.php
 
