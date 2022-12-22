@@ -46,11 +46,13 @@ services:
     restart: always
     networks:
       - inception
-  # adminer:
-  #   build: requirements/bonus/adminer
-  #   restart: always
-  #   networks:
-  #     - inception
+  adminer:
+    build: requirements/bonus/adminer
+    ports:
+      - 5000:5000
+    restart: always
+    networks:
+      - inception
 
 volumes:
   wordpress:
