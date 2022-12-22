@@ -39,11 +39,13 @@ services:
         - wordpress:/var/www/html
     networks:
       - inception
-  # portfolio:
-  #   build: requirements/bonus/portfolio
-  #   restart: always
-  #   networks:
-  #     - inception
+  portfolio:
+    build: requirements/bonus/portfolio
+    ports:
+      - 80:80
+    restart: always
+    networks:
+      - inception
   # adminer:
   #   build: requirements/bonus/adminer
   #   restart: always

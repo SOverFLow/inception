@@ -1,10 +1,14 @@
 FROM debian:buster
 
+RUN apt -y update \
+    && apt -y install nginx \
+    && apt -y install git
+
 WORKDIR /var/www/html
 
-RUN apt -y update \
-    && apt -y install git \
-    && git clone "https://github.com/selhanda/myprotofolio.git"
+RUN git clone "https://github.com/selhanda/myprotofolio.git" \
+    && cp -r myprotofolio/* .
 
+EXPOSE 80
 
-EXPOSE 5000
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
