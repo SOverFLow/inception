@@ -34,6 +34,8 @@ services:
       - inception
   vsftpd:
     build: requirements/bonus/ftp
+    ports:
+      - 21:21
     restart: always
     volumes:
         - wordpress:/var/www/html
