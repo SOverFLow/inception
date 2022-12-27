@@ -38,7 +38,7 @@ services:
       - 21:21
     restart: always
     volumes:
-        - wordpress:/var/www/html
+        - wordpress:/home/ftpuser/
     networks:
       - inception
   portfolio:
