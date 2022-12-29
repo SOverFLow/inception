@@ -6,6 +6,7 @@ services:
     build: requirements/nginx
     volumes:
         - wordpress:/var/www/html
+        - adminer:/var/www/adminer
     restart: always
     ports:
       - 443:443
@@ -51,7 +52,9 @@ services:
   adminer:
     build: requirements/bonus/adminer
     ports:
-      - 5000:5000
+      - 9000:9000
+    volumes:
+        - adminer:/var/www/html
     restart: always
     networks:
       - inception
@@ -60,6 +63,8 @@ volumes:
   wordpress:
     driver : local
   wp-data:
+    driver : local
+  adminer:
     driver : local
 networks:
   inception:

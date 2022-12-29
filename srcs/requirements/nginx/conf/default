@@ -47,7 +47,7 @@ server {
         root /var/www/html;
 
         # Add index.php to the list if you are using PHP
-        index index.php index.html index.htm index.nginx-debian.html;
+        index index.php index.html index.htm ;
 
         location / {
                 # First attempt to serve request as file, then
@@ -58,7 +58,8 @@ server {
         # pass PHP scripts to FastCGI server
         #
         location ~ \.php$ {
-               include snippets/fastcgi-php.conf;
+
+                include snippets/fastcgi-php.conf;
         #
         #       # With php-fpm (or other unix sockets):
         #       fastcgi_pass unix:/run/php/php7.3-fpm.sock;
@@ -72,6 +73,12 @@ server {
         #location ~ /\.ht {
         #       deny all;
         #}
+
+        location /adminer/ {
+                root /var/www/adminer;
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass adminer:9000;
+        }
 }
 
 
