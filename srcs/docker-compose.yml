@@ -9,10 +9,12 @@ services:
     restart: always
     ports:
       - 443:443
+    container_name: nginx
     networks:
       - inception
   mariadb:
     build: requirements/mariadb
+    container_name: mariadb
     volumes:
         - wp-data:/var/lib/mysql
     restart: always
@@ -22,6 +24,7 @@ services:
     depends_on:
       - mariadb
     build: requirements/wordpress
+    container_name: wordpress
     volumes:
       - wordpress:/var/www/html
     env_file:
@@ -31,6 +34,7 @@ services:
       - inception
   redis:
     build: requirements/bonus/redis
+    container_name: redis
     restart: always
     networks:
       - inception
@@ -38,6 +42,7 @@ services:
     build: requirements/bonus/ftp
     ports:
       - 21:21
+    container_name: vsftpd
     restart: always
     volumes:
         - wordpress:/home/ftpuser/
@@ -47,6 +52,7 @@ services:
     build: requirements/bonus/portfolio
     ports:
       - 80:80
+    container_name: portfolio
     restart: always
     networks:
       - inception
@@ -54,9 +60,21 @@ services:
     build: requirements/bonus/adminer
     ports:
       - 8000:8000
+    container_name: adminer
     restart: always
     networks:
       - inception
+  jenkins:
+    build: requirements/bonus/jenkins
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - /home/salah/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   wordpress:
