@@ -2,16 +2,16 @@
 
 wp core download --allow-root
 
-wp config create --dbname=wordpress \
-    --dbuser=wpuser --dbpass=Selhanda@123 \
-    --dbhost=mariadb --allow-root
+wp config create --dbname=$DB_NAME \
+    --dbuser=$DB_USER --dbpass=$DB_PASS \
+    --dbhost=$DB_HOST --allow-root
 
 
 wp core install --url=$IP \
- --title="inception" \
- --admin_user="root" \
- --admin_password="Selhanda@123" \
- --admin_email="admin@email.com" \
+ --title=$SITE_TITLE \
+ --admin_user=$ADMIN_USER \
+ --admin_password=$ADMIN_PASS \
+ --admin_email=$ADMIN_EMAIL \
  --allow-root
  
 
