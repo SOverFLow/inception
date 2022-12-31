@@ -1,11 +1,13 @@
 #!/bin/sh
 
+wp core download --allow-root
+
 wp config create --dbname=wordpress \
     --dbuser=wpuser --dbpass=Selhanda@123 \
     --dbhost=mariadb --allow-root
 
 
-wp core install --url="10.12.177.171" \
+wp core install --url=$IP \
  --title="inception" \
  --admin_user="root" \
  --admin_password="Selhanda@123" \

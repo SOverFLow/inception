@@ -11,7 +11,7 @@ RUN chmod +x wp-cli.phar \
 
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-RUN wp core download --allow-root
+# RUN wp core download --allow-root
 
 COPY tools/ /bin
 

@@ -75,9 +75,7 @@ server {
         #}
 
         location /adminer/ {
-                root /var/www/adminer;
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass adminer:9000;
+                proxy_pass http://adminer:8000;
         }
 }
 

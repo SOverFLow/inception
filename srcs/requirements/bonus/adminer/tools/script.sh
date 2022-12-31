@@ -1,2 +1,2 @@
 #!/bin/sh
-php-fpm7.3 -R -F
+php -S 0.0.0.0:8000

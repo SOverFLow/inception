@@ -1,23 +1,18 @@
 FROM debian:buster
 
-
 RUN apt-get update \
     && apt-get install -y \
-    && apt install php php-mysql php-fpm mariadb-client -y \
-    && apt -y install nginx \
-    && apt -y install wget \
-    && mkdir /run/php/
+    && apt install php php-mysql -y \
+    && apt -y install wget 
 
-WORKDIR /var/www/html
+WORKDIR /var/www/adminer
 
-RUN wget https://www.adminer.org/latest.php -O /var/www/html/index.php
+RUN wget https://www.adminer.org/latest.php -O /var/www/adminer/index.php
 
-RUN chown -R www-data:www-data /var/www/html
-
-COPY conf/www.conf /etc/php/7.3/fpm/pool.d
+RUN chown -R www-data:www-data /var/www/adminer
 
 COPY ./tools/script.sh /bin
 
-EXPOSE 9000
+EXPOSE 8000
 
 CMD ["script.sh"]
