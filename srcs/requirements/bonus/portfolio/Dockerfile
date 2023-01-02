@@ -7,7 +7,8 @@ RUN apt -y update \
 WORKDIR /var/www/html
 
 RUN git clone "https://github.com/selhanda/myprotofolio.git" \
-    && cp -r myprotofolio/* .
+    && cp -r myprotofolio/* . \
+    && apt install curl -y
 
 EXPOSE 80
 
