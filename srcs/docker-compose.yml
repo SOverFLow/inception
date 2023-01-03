@@ -6,6 +6,8 @@ services:
     build: requirements/nginx
     volumes:
         - wordpress:/var/www/html
+    env_file:
+      - .env
     restart: always
     ports:
       - 443:443
@@ -17,6 +19,8 @@ services:
     container_name: mariadb
     volumes:
         - wp-data:/var/lib/mysql
+    env_file:
+      - .env
     restart: always
     networks:
       - inception
@@ -75,7 +79,6 @@ services:
     restart: always
     networks:
       - inception
-  
 
 volumes:
   wordpress:
