@@ -38,6 +38,7 @@ server {
         #
         # include snippets/snakeoil.conf;
 
+        ssl_protocols TLSv1.2;
         ssl                     on;
         ssl_certificate        /etc/ssl/certs/nginx-selfsigned.crt;
         ssl_certificate_key    /etc/ssl/private/nginx-selfsigned.key;
