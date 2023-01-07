@@ -7,7 +7,7 @@ wp config create --dbname=$DB_NAME \
     --dbhost=$DB_HOST --allow-root
 
 
-wp core install --url=$IP \
+wp core install --url=$DOMAIN_NAME \
  --title=$SITE_TITLE \
  --admin_user=$ADMIN_USER \
  --admin_password=$ADMIN_PASS \

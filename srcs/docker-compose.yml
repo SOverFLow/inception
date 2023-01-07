@@ -47,9 +47,11 @@ services:
     ports:
       - 21:21
     container_name: vsftpd
+    env_file:
+      - .env
     restart: always
     volumes:
-        - wordpress:/home/ftpuser/
+        - wordpress:/home/ftpuser/wordpress
     networks:
       - inception
   portfolio:

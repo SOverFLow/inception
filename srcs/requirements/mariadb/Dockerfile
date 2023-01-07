@@ -7,8 +7,8 @@ COPY tools/ tools/
 
 COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-RUN service mysql start && mariadb < tools/mariadb.sql
+RUN chmod 777 tools/start.sh
 
 EXPOSE 3306
 
-CMD ["mysqld"]
+CMD ["tools/start.sh"]

@@ -1,7 +1,9 @@
 #!/bin/sh
 useradd -m ftpuser \
-    && echo "ftpuser:password" | chpasswd \
-    && usermod -g www-data ftpuser
+    && echo $FTP_USER:$FTP_PASS | chpasswd \
+    && chown -R $FTP_USER:$FTP_USER /home/ftpuser/wordpress \
+    && mkdir /home/ftpuser/empty \
+    && chown -R $FTP_USER:$FTP_USER /home/ftpuser/empty
 
 
 vsftpd
