@@ -1,7 +1,7 @@
 up:
-	@cd srcs && sudo docker compose up -d --build
+	@cd srcs && docker compose up -d --build
 	@echo "💥 services active..."
 
 down:
-	@cd srcs && sudo docker compose down
+	@cd srcs && docker compose down
 	@echo "💥 services down..."
