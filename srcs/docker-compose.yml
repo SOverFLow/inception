@@ -6,6 +6,7 @@ services:
     build: requirements/nginx
     volumes:
         - wordpress:/var/www/html
+    init: true
     env_file:
       - .env
     restart: always
@@ -19,6 +20,7 @@ services:
     container_name: mariadb
     volumes:
         - wp-data:/var/lib/mysql
+    init: true
     env_file:
       - .env
     restart: always
@@ -31,6 +33,7 @@ services:
     container_name: wordpress
     volumes:
       - wordpress:/var/www/html
+    init: true
     env_file:
       - .env
     restart: always
@@ -39,6 +42,7 @@ services:
   redis:
     build: requirements/bonus/redis
     container_name: redis
+    init: true
     restart: always
     networks:
       - inception
@@ -47,6 +51,7 @@ services:
     ports:
       - 21:21
     container_name: vsftpd
+    init: true
     env_file:
       - .env
     restart: always
@@ -59,6 +64,7 @@ services:
     ports:
       - 80:80
     container_name: portfolio
+    init: true
     restart: always
     networks:
       - inception
@@ -67,12 +73,14 @@ services:
     ports:
       - 8000:8000
     container_name: adminer
+    init: true
     restart: always
     networks:
       - inception
   portainer:
     build: requirements/bonus/portainer
     container_name: portainer
+    init: true
     ports:
       - 9000:9000
     volumes:
