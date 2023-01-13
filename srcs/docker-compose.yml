@@ -16,7 +16,13 @@ services:
     networks:
       - inception
   mariadb:
-    build: requirements/mariadb
+    build:
+      context: requirements/mariadb
+      args:
+        - DB_NAME 
+        - DB_USER 
+        - DB_PASS 
+        - ADMIN_USER
     container_name: mariadb
     volumes:
         - wp-data:/var/lib/mysql
