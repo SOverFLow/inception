@@ -7,6 +7,6 @@ mysql -e "GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%';"
 mysql -e "FLUSH PRIVILEGES;"
 # mysql -e "ALTER USER '${ADMIN_USER}'@'%' IDENTIFIED BY '${DB_PASS}'"
 
-service mysql st
+service mysql start
 
 mysqld
