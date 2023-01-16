@@ -99,10 +99,22 @@ services:
 volumes:
   wordpress:
     driver : local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${HOME}/data/wordpress
   wp-data:
     driver : local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${HOME}/data/wp-data
   po:
     driver : local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${HOME}/data/po
 networks:
   inception:
     driver : bridge
